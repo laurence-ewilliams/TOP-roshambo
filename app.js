@@ -1,19 +1,24 @@
 function getComputerChoice() {
     let i = Math.floor(Math.random() * 3);
     if (i === 0) {
-        console.log("Rock");
         return "Rock";
     } else if (i === 1) {
-        console.log("Paper");
         return "Paper";
     } else {
-        console.log("Scissors");
         return "Scissors";
     }
 }
 
 function playRound(playerSelection, computerSelection) {
-    
+    if (playerSelection === "rock" && computerSelection === "Rock") {
+        return "It's a tie, go again!";
+    } else if (playerSelection === "rock" && computerSelection === "Paper") {
+        return "You lose! Paper beats Rock";
+    } else if (playerSelection === "rock" && computerSelection === "Scissors") {
+        return "You win! Rock beats Scissors"
+    }
 }
 
-getComputerChoice();
+const computerSelection = getComputerChoice();
+const playerSelection = prompt("Select your weapon: Rock, Paper or Scissors").toLowerCase();
+console.log(playRound("rock", computerSelection));
